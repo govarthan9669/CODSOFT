@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to Currency Converter!");
+
+        // Exchange rates
+        double inrToUsdRate = 0.014;
+        double inrToEurRate = 0.012;
+        double inrToGbpRate = 0.011;
+        double inrToJpyRate = 1.52;
+        double inrToCnyRate = 0.089;
+        double inrToCadRate = 0.017;
+        double inrToAudRate = 0.017;
+        double inrToRubRate = 1.02;
+        double inrToKrwRate = 16.73;
+        double inrToSgdRate = 0.018;
+
+        System.out.println("Available currencies:");
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+        System.out.println("3. GBP");
+        System.out.println("4. JPY");
+        System.out.println("5. CNY");
+        System.out.println("6. CAD");
+        System.out.println("7. AUD");
+        System.out.println("8. RUB");
+        System.out.println("9. KRW");
+        System.out.println("10. SGD");
+        System.out.print("Enter base currency (INR): ");
+        scanner.next(); // Consuming the input, assuming base currency is always INR
+        System.out.print("Enter target currency: ");
+        String targetCurrency = scanner.next().toUpperCase();
+
+        double exchangeRate = 0.0;
+        switch (targetCurrency) {
+            case "USD":
+                exchangeRate = inrToUsdRate;
+                break;
+            case "EUR":
+                exchangeRate = inrToEurRate;
+                break;
+            case "GBP":
+                exchangeRate = inrToGbpRate;
+                break;
+            case "JPY":
+                exchangeRate = inrToJpyRate;
+                break;
+            case "CNY":
+                exchangeRate = inrToCnyRate;
+                break;
+            case "CAD":
+                exchangeRate = inrToCadRate;
+                break;
+            case "AUD":
+                exchangeRate = inrToAudRate;
+                break;
+            case "RUB":
+                exchangeRate = inrToRubRate;
+                break;
+            case "KRW":
+                exchangeRate = inrToKrwRate;
+                break;
+            case "SGD":
+                exchangeRate = inrToSgdRate;
+                break;
+            default:
+                System.out.println("Invalid target currency.");
+                return;
+        }
+
+        System.out.print("Enter amount to convert: ");
+        double amount = scanner.nextDouble();
+
+        double convertedAmount = amount * exchangeRate;
+
+        System.out.println("Converted amount: " + convertedAmount + " " + targetCurrency);
+    }
+}
